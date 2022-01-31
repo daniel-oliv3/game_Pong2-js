@@ -34,4 +34,24 @@ function iniciarJogo(){
     pontosJogador = 0;
     pontoOponente = 0;
 
+
+    document.addEventListener('keyup', keyUp, false);
+    document.addEventListener('keydown', keyDown, false);
+
+    setInterval(loopGame, 30);
+
+}
+
+function keyUp(e){
+    if(e.keyCode == 38){
+        teclaCimaPressionada = false;
+    }
+}
+
+function keyDown(){
+    
+}
+
+function loopGame(){
+    
 }
