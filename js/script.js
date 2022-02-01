@@ -60,4 +60,34 @@ function keyDown(){
 
 function loopGame(){
     
+
+    //Jogador
+
+    if(teclaCimaPressionada != teclaBaixoPressionada){ //se o usuario pressionar tecla para cima
+        if(teclaCimaPressionada){ //se for para cima pressionado
+            if(jogadorPosY > 0){ //se a bola não sair da tela
+                jogadorPosY -= velocidadeJogador; //muda a posição do jogador
+            }
+        }
+        else { //se for para baixo
+            if(jogadorPosY < (canvas.height - barraHeigth)){ //se a bola não saiu da tela
+                jogadorPosY += velocidadeJogador; //muda a posição
+            }
+        }
+    }
+
+
+    //Oponente
+
+    if(oponenteParaCima){ //caso oponente indo para cima
+        oponenteParaCima -= velocidadeOponente;
+        if(oponentePosY <= 0){ // se a bola estiver saindo da tela
+            oponenteParaCima = false;
+        }
+    }
+    else{ //se o oponente estiver se movendo para cima
+        oponentePosY >= (canvas.height - barraHeigth){ //caso a bola estiver saindo
+
+        }
+    }
 }
