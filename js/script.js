@@ -116,6 +116,23 @@ function loopGame(){
                 }
             }
         }
+
+        //verifica se a bola ta bantendo ara cima ou para baixo na tela
+        if((bolaPosY - bolaRaio <= 0) || (bolaPosY + bolaRaio > canvas.height)){
+            bolaAngulo = bolaAngulo * -1; //multiplicamos por -1 para inverter a direção da bola no eixo y
+        }
+        bolaPosY += bolaAngulo; //move a bola para cima ou para baixo de acordo com o calculo acima
+
+        if(bolaParaDireita){
+            bolaPosX += velocidadeBola; //move a bola para direita
+        }
+        else {
+            bolaPosX -= velocidadeBola; //move a bola para esquerda
+        }
+    }
+
+    if((bolaPosX <= -bolaRaio) || (bolaPosX > canvas.width)){
+
     }
     
 }
