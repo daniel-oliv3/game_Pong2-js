@@ -151,10 +151,8 @@ function loopGame(){
             bolaTempo++; 
         }
     }
-    
-}
 
-// DESENHA TODA A TELA
+    // DESENHA TODA A TELA
 context.clearRect(0, 0, canvas.width, canvas.height); //limpa a tela antes de desenhar
 
 //Jogador e Oponente
@@ -192,3 +190,11 @@ context.lineTo(canvas.width / 2, canvas.height); // faz o risco na tela no centr
 context.strokeStyle = "#000000";
 context.stroke();
 context.closePath();
+    
+}
+
+
+
+$(function () {
+    iniciarJogo();
+});
