@@ -95,7 +95,27 @@ function loopGame(){
         if((bolaPosX - bolaRaio) <= (jogadorPosX + barraWidth)){ // caso o jogador encoste na bola no eixo X
             if((bolaPosY + bolaRaio > jogadorPosY) && (bolaPosY - bolaRaio < jogadorPosY + barraHeigth)){ //caso jogador encoste na bola no eixo Y
                 bolaParaDireita = true;
+                if(teclaBaixoPressionada){  //se o jogador estiver indo para baixo e tocar na bola 
+                    bolaAngulo = Math.floor(Math.random() * 10) - 9; // manda a bola para a diagonal para cima
+                }
+                else {
+                    bolaAngulo = Map.floor(Math.randon() * 10); // manda a bola para a diagonal para baixo
+                }
+            }
+        }
+        else{
+            if((bolaPosX + bolaRaio) > oponentePosX){ // se o oponente encostar na bola no eixo x
+                if((bolaPosY + bolaRaio) > oponentePosY && (bolaPosY - bolaRaio < oponentePosY + barraHeigth)){ // se o oponente encostar na bola no eixo y
+                    bolaParaDireita = false;
+                    if(oponenteParaCima){ // caso o oponente estiver indo pra cima tocar na bola
+                        bolaAngulo = Math.floor(Math.random() * 10) - 9; //manda a bola para a diagonal para cima
+                    }
+                    else { // caso o oponente estiver indo para baixo quando tocar na bola
+                        bolaAngulo = Math.floor(Math.random() * 10); // manda a bola para a diagonal para baixo
+                    }
+                }
             }
         }
     }
+    
 }
