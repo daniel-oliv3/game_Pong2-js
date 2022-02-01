@@ -131,8 +131,38 @@ function loopGame(){
         }
     }
 
-    if((bolaPosX <= -bolaRaio) || (bolaPosX > canvas.width)){
+    if((bolaPosX <= -bolaRaio) || (bolaPosX > canvas.width)){ // se a bola si da tela
+        if(bolaTempo >= 50){ // se o tempo de deixar a bola invisivel passou
+            if(bolaPosX <= -bolaRaio){ // se a bola saiu na esquerda
+                pontoOponente++;
+            }
+            else { // se a bola saiu a direita
+                pontosJogador++;
+            }
 
+            bolaPosX = canvas.width / 2; //coloca a bola no centro da tela
+            bolaPosY = canvas.height / 2; //coloca a bola no centro da tela
+            
+            bolaParaDireita = false;
+            bolaAngulo = Math.floor(Math.random() * 21) - 10; 
+            bolaTempo = 0; // zera o tempo de deixar a bola invisivel e coloca novamente em jogo
+        }
+        else { // caso o tempo de deixar a bola invisivel não acabou
+            bolaTempo++; 
+        }
     }
     
 }
+
+// DESENHA TODA A TELA
+context.clearRect(0, 0, canvas.width, canvas.height); //limpa a tela antes de desenhar
+
+//Jogador e Oponente
+context.fillRect(jogadorPosX, jogadorPosY, barraWidth, barraHeigth); // desenha jogador
+context.fillRect(oponentePosX, oponentePosY, barraWidth, barraHeigth); // desenha oponente
+
+//Bola
+context.beginPath(); // modo desenho
+context.arc(bolaPosX, bolaPosY, bolaRaio, 0, Math.PI * 2, true); //desenha o circulo com as coordernadas no centro
+context.closePath(); // finaliza o caminho "não obrigatorio"
+context.fill();
