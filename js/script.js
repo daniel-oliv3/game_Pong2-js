@@ -166,3 +166,29 @@ context.beginPath(); // modo desenho
 context.arc(bolaPosX, bolaPosY, bolaRaio, 0, Math.PI * 2, true); //desenha o circulo com as coordernadas no centro
 context.closePath(); // finaliza o caminho "não obrigatorio"
 context.fill();
+
+//Placar
+var pontosA = pontosJogador; //variaveis temporaria para alterar a pontuação
+var pontosB = pontosOponente;
+
+if(pontosA < 10){  //coloca zero a esquerda se for menor 10 a pontuação
+    pontosA = "0" + pontosA;
+}
+
+if(pontosB < 10){  //coloca zero a esquerda se for menor 10 a pontuação
+    pontosA = "0" + pontosB;
+}
+
+//desenha o placar
+context.font = "38pt Arial"; // tamanho da fonte
+context.fillStyle = "#000000";
+context.fillText(pontosA + " " + pontosB, (canvas.width / 2) - 70, 50); // escrevendo texto no centro da tela no top
+
+
+//Linha divisória
+context.beginPath();
+context.moveTo(canvas.width / 2, 0); //arrumar lapis paa fazer a escrita da linha
+context.lineTo(canvas.width / 2, canvas.height); // faz o risco na tela no centro
+context.strokeStyle = "#000000";
+context.stroke();
+context.closePath();
