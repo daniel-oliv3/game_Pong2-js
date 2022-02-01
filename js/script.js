@@ -62,7 +62,6 @@ function loopGame(){
     
 
     //Jogador
-
     if(teclaCimaPressionada != teclaBaixoPressionada){ //se o usuario pressionar tecla para cima
         if(teclaCimaPressionada){ //se for para cima pressionado
             if(jogadorPosY > 0){ //se a bola não sair da tela
@@ -78,7 +77,6 @@ function loopGame(){
 
 
     //Oponente
-
     if(oponenteParaCima){ //caso oponente indo para cima
         oponenteParaCima -= velocidadeOponente;
         if(oponentePosY <= 0){ // se a bola estiver saindo da tela
@@ -86,8 +84,18 @@ function loopGame(){
         }
     }
     else{ //se o oponente estiver se movendo para cima
-        oponentePosY >= (canvas.height - barraHeigth){ //caso a bola estiver saindo
+        oponentePosY += velocidadeOponente;
+        if( oponentePosY >= canvas.height - barraHeigth){ //caso a bola estiver saindo da tela){ 
+            oponenteParaCima = true;
+        }
+    }
 
+    //Bola
+    if(bolaTempo <= 0){ // caso a bola estiver em jogo, o tempo e zerado apos marcar ponto, a bola ficara invisivel por um tempo
+        if((bolaPosX - bolaRaio) <= (jogadorPosX + barraWidth)){ // caso o jogador encoste na bola no eixo X
+            if((bolaPosY + bolaRaio > jogadorPosY) && (bolaPosY - bolaRaio < jogadorPosY + barraHeigth)){ //caso jogador encoste na bola no eixo Y
+                bolaParaDireita = true;
+            }
         }
     }
 }
