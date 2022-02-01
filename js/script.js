@@ -45,11 +45,17 @@ function iniciarJogo(){
 function keyUp(e){
     if(e.keyCode == 38){
         teclaCimaPressionada = false;
+    }else if(e.keyCode == 40){
+        teclaBaixoPressionada = false;
     }
 }
 
 function keyDown(){
-    
+    if(e.keyCode == 38){
+        teclaCimaPressionada = true;
+    }else if(e.keyCode == 40){
+        teclaBaixoPressionada = true;
+    }
 }
 
 function loopGame(){
